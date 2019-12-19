@@ -1,0 +1,40 @@
+version: '3.4'
+
+services: 
+  mariadb:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: wishlist
+      MYSQL_USER: wishlist
+      MYSQL_PASSWORD: changeme
+    ports:
+      - 3306:3306
+
+  wishlist-api:
+    # restart: always
+    image: shawnsilva/wishlist:jatgam-api-latest
+    build: 
+      context: ../wishlist-api.git/
+      dockerfile: Dockerfile
+    ports: 
+      - 4000:4000
+    environment: 
+      DB_HOSTNAME: mariadb
+      DB_NAME: wishlist
+      DB_USERNAME: wishlist
+      DB_PASSWORD: changeme
+    volumes:
+      - ../wishlist-api.git/config.json:/app/config.json:ro
+
+  wishlist-client:
+    image: shawnsilva/wishlist:jatgam-ui-latest
+    # restart: always
+    build:
+      context: ../wishlist-ui.git/
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment: 
+      - 'API_SERVER_HOST=wishlist-api'
+      - 'API_SERVER_PORT=4000'
