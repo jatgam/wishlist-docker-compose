@@ -13,7 +13,7 @@ services:
 
   wishlist-api:
     # restart: always
-    image: shawnsilva/wishlist:jatgam-api-latest
+    image: jatgam/wishlist-api:latest
     build: 
       context: ../wishlist-api.git/
       dockerfile: Dockerfile
@@ -28,7 +28,7 @@ services:
       - ../wishlist-api.git/config.json:/app/config.json:ro
 
   wishlist-client:
-    image: shawnsilva/wishlist:jatgam-ui-latest
+    image: jatgam/wishlist-ui:latest
     # restart: always
     build:
       context: ../wishlist-ui.git/
