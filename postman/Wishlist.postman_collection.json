@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "2b7a1a7a-8e89-4ced-add1-fc067dba5b24",
+		"name": "Wishlist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/auth",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user authenticated",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{currentAccessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/authenticated",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"authenticated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "<username>",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "<password>",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "<email>",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "<fname>",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "<lname>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/register",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user forgot pass",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "<email>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/password_forgot",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"password_forgot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user password token valid",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/password_reset/58723aef6729703058a2c4a27dfd52731f770252",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"password_reset",
+						"58723aef6729703058a2c4a27dfd52731f770252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user password reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "<email>",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "<pass>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/password_reset/58723aef6729703058a2c4a27dfd52731f770252",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"password_reset",
+						"58723aef6729703058a2c4a27dfd52731f770252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "{{currentAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/get/1",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item get wanted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item get all",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a137671c-6956-4d99-95ec-a44b13407b26",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "{{currentAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/all",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item get reserved",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "{{currentAccessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/reserved",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"reserved"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "{{currentAccessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "thing2",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "http://something.com",
+							"type": "text"
+						},
+						{
+							"key": "rank",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item reserve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{currentAccessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/id/148/reserve",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"id",
+						"148",
+						"reserve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item unreserve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{currentAccessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/id/148/unreserve",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"id",
+						"148",
+						"unreserve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item rank",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{currentAccessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/id/148/rank/1",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"id",
+						"148",
+						"rank",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "x-access-token",
+						"type": "text",
+						"value": "{{currentAccessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{host}}:{{api-port}}/item/id/149",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"item",
+						"id",
+						"149"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a2edd0ed-d268-46d0-b5d8-8582ca77d627",
+				"type": "text/javascript",
+				"exec": [
+					"const echoPostRequest = {",
+					"  url: 'http://'+pm.environment.get('host')+':'+pm.environment.get('api-port')+'/user/auth',",
+					"  method: 'POST',",
+					"  header: 'Content-Type:application/x-www-form-urlencoded',",
+					"  body: {",
+					"    mode: 'application/x-www-form-urlencoded',",
+					"    raw: 'username='+pm.globals.get('username')+'&password='+pm.globals.get('password')",
+					"  }",
+					"};",
+					"",
+					"var getToken = true;",
+					"",
+					"",
+					"if (getToken === true) {",
+					"    pm.sendRequest(echoPostRequest, function (err, res) {",
+					"    console.log(err ? err : res.json());",
+					"        if (err === null) {",
+					"            console.log('Saving the token')",
+					"            var responseJson = res.json();",
+					"            pm.environment.set('currentAccessToken', responseJson.token)",
+					"        }",
+					"    });",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "69d16b35-d5bc-4946-84ec-2568fd1e37ca",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
