@@ -14,18 +14,21 @@ services:
   wishlist-api:
     # restart: always
     image: jatgam/wishlist-api:latest
+    env_file: 
+      - api.env
     build: 
       context: ../wishlist-api.git/
       dockerfile: Dockerfile
     ports: 
       - 4000:4000
+      - 4001:4001
+      - 4002:4002
+    command: --expose-ports
     environment: 
       DB_HOSTNAME: mariadb
       DB_NAME: wishlist
       DB_USERNAME: wishlist
       DB_PASSWORD: changeme
-    volumes:
-      - ../wishlist-api.git/config.json:/app/config.json:ro
 
   wishlist-client:
     image: jatgam/wishlist-ui:latest

@@ -47,6 +47,41 @@
 			"response": []
 		},
 		{
+			"name": "user auth refresh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "Bearer {{currentAccessToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer {{currentAccessToken}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}:{{api-port}}/user/auth/refresh",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{api-port}}",
+					"path": [
+						"user",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "user authenticated",
 			"request": {
 				"auth": {
@@ -55,20 +90,20 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "x-access-token",
+						"key": "Authorization",
 						"type": "text",
-						"value": "{{currentAccessToken}}"
+						"value": "Bearer {{currentAccessToken}}"
 					}
 				],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/user/authenticated",
+					"raw": "{{host}}:{{api-port}}/user/auth",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{api-port}}",
 					"path": [
 						"user",
-						"authenticated"
+						"auth"
 					]
 				}
 			},
@@ -170,17 +205,9 @@
 			"name": "user password token valid",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded",
-						"disabled": true
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/user/password_reset/58723aef6729703058a2c4a27dfd52731f770252",
+					"raw": "{{host}}:{{api-port}}/user/password_reset/22f4d7a7ec25242205c981c28645e62cc787cccc",
 					"host": [
 						"{{host}}"
 					],
@@ -188,7 +215,7 @@
 					"path": [
 						"user",
 						"password_reset",
-						"58723aef6729703058a2c4a27dfd52731f770252"
+						"22f4d7a7ec25242205c981c28645e62cc787cccc"
 					]
 				}
 			},
@@ -216,13 +243,13 @@
 						},
 						{
 							"key": "password",
-							"value": "<pass>",
+							"value": "<password>",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{host}}:{{api-port}}/user/password_reset/58723aef6729703058a2c4a27dfd52731f770252",
+					"raw": "{{host}}:{{api-port}}/user/password_reset/22f4d7a7ec25242205c981c28645e62cc787cccc",
 					"host": [
 						"{{host}}"
 					],
@@ -230,36 +257,7 @@
 					"path": [
 						"user",
 						"password_reset",
-						"58723aef6729703058a2c4a27dfd52731f770252"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get user",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "x-access-token",
-						"value": "{{currentAccessToken}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{host}}:{{api-port}}/user/get/1",
-					"host": [
-						"{{host}}"
-					],
-					"port": "{{api-port}}",
-					"path": [
-						"user",
-						"get",
-						"1"
+						"22f4d7a7ec25242205c981c28645e62cc787cccc"
 					]
 				}
 			},
@@ -301,8 +299,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "x-access-token",
-						"value": "{{currentAccessToken}}",
+						"key": "Authorization",
+						"value": "Bearer {{currentAccessToken}}",
 						"type": "text"
 					}
 				],
@@ -326,8 +324,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "x-access-token",
-						"value": "{{currentAccessToken}}",
+						"key": "Authorization",
+						"value": "Bearer {{currentAccessToken}}",
 						"type": "text"
 					}
 				],
@@ -357,8 +355,8 @@
 						"type": "text"
 					},
 					{
-						"key": "x-access-token",
-						"value": "{{currentAccessToken}}",
+						"key": "Authorization",
+						"value": "Bearer {{currentAccessToken}}",
 						"type": "text"
 					}
 				],
@@ -401,13 +399,13 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "x-access-token",
+						"key": "Authorization",
 						"type": "text",
-						"value": "{{currentAccessToken}}"
+						"value": "Bearer {{currentAccessToken}}"
 					}
 				],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/item/id/148/reserve",
+					"raw": "{{host}}:{{api-port}}/item/id/163/reserve",
 					"host": [
 						"{{host}}"
 					],
@@ -415,7 +413,7 @@
 					"path": [
 						"item",
 						"id",
-						"148",
+						"163",
 						"reserve"
 					]
 				}
@@ -428,13 +426,13 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "x-access-token",
+						"key": "Authorization",
 						"type": "text",
-						"value": "{{currentAccessToken}}"
+						"value": "Bearer {{currentAccessToken}}"
 					}
 				],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/item/id/148/unreserve",
+					"raw": "{{host}}:{{api-port}}/item/id/163/unreserve",
 					"host": [
 						"{{host}}"
 					],
@@ -442,7 +440,7 @@
 					"path": [
 						"item",
 						"id",
-						"148",
+						"163",
 						"unreserve"
 					]
 				}
@@ -455,13 +453,13 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "x-access-token",
+						"key": "Authorization",
 						"type": "text",
-						"value": "{{currentAccessToken}}"
+						"value": "Bearer {{currentAccessToken}}"
 					}
 				],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/item/id/148/rank/1",
+					"raw": "{{host}}:{{api-port}}/item/id/163/rank/1",
 					"host": [
 						"{{host}}"
 					],
@@ -469,7 +467,7 @@
 					"path": [
 						"item",
 						"id",
-						"148",
+						"163",
 						"rank",
 						"1"
 					]
@@ -483,19 +481,13 @@
 				"method": "DELETE",
 				"header": [
 					{
-						"key": "Content-Type",
-						"name": "Content-Type",
+						"key": "Authorization",
 						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					},
-					{
-						"key": "x-access-token",
-						"type": "text",
-						"value": "{{currentAccessToken}}"
+						"value": "Bearer {{currentAccessToken}}"
 					}
 				],
 				"url": {
-					"raw": "{{host}}:{{api-port}}/item/id/149",
+					"raw": "{{host}}:{{api-port}}/item/id/163",
 					"host": [
 						"{{host}}"
 					],
@@ -503,7 +495,7 @@
 					"path": [
 						"item",
 						"id",
-						"149"
+						"163"
 					]
 				}
 			},
